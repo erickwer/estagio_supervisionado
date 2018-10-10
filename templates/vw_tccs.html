@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="Pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Esta área reservada para o orientador! </title>
+</head>
+<body>
+<h1>Esta área é dos TCCs! </h1>
+
+
+    {% for tcc in tccs %}
+        <li><h4>Título:</h4> {{ tcc.titulo }}</li>
+        <ul><h4> Autor:</h4> {{ tcc.autor }} </ul>
+        <ul><h4>Orientador:</h4> {{ tcc.orientador.professor.nome }}</ul>
+        <ul><h4> Indentificação da banca:</h4> {{ tcc.banca.identificacao }}</ul>
+    {% endfor %}
+</body>
+</html>

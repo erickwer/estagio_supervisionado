@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="Pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Esta área reservada para o orientador! </title>
+</head>
+<body>
+<h1>Esta área é dos estágios! </h1>
+
+    {% for estagio in estagios %}
+        <li><h4>Título:</h4> {{ estagio.titulo }}</li>
+        <ul><h4> Autor:</h4> {{ estagio.autor }} </ul>
+        <ul><h4>Orientador:</h4> {{ estagio.orientador.professor.nome }}</ul>
+        <ul><h4> Indentificação da banca:</h4> {{ estagio.banca.identificacao }}</ul>
+    {% endfor %}
+</body>
+</html>
