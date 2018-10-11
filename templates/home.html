@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Inicial </title>
-</head>
-<body>
-<h1>Pagina inicial</h1>
-<button type="button" class="btn btn-secondary">Orientador
-    <a href="/orientador/"> Pagina orientador! </a> <br>
-</button>
-<button type="button" class="btn btn-secondary">Orientador
-    <a href="/aluno/"> Pagina Aluno! </a> <br>
-</button>
-<button type="button" class="btn btn-secondary">Orientador
-    <a href="/coordenador/"> Pagina Coordenador! </a> <br>
-</button>
-<button type="button" class="btn btn-secondary">Orientador
-    <a href="/disciplina/"> Pagina Do projeto! </a>
-</button>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}
+
+{% endblock %}
+{% block main %}
+    <h1>Pagina inicial</h1>
+        <a href="/orientador/" class="btn btn-secondary"> Pagina orientador </a>
+        <a href="/aluno/" class="btn btn-secondary"> Pagina Aluno </a>
+        <a href="/coordenador/" class="btn btn-secondary"> Pagina Coordenador </a>
+        <a href="/disciplina/" class="btn btn-secondary"> Pagina Do projeto </a>
+{% endblock %}

@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>aqui o usuário escolhe a disciplina</h1>
-<a href="estagio/"> ESTAGIOS! </a> <br>
-<a href="tcc/"> TCCs! </a>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %} <h1> Pagina de acesso aos projetos </h1> {% endblock %}
+{% block main %}
+
+    <a href="estagio/"  class="btn btn-primary" > ESTAGIOS </a>
+    <a href="tcc/"  class="btn btn-primary"> TCCs</a>
+    <a href="add_projeto/"  class="btn btn-primary"> Novo projeto </a>
+
+{% endblock %}

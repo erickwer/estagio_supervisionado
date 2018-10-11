@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<html lang="Pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Esta área reservada para o orientador! </title>
-</head>
-<body>
-<h1>Esta área é dos estágios! </h1>
+{% extends 'base.html' %}
+{% block title %}
+    <title>Estagio </title>
+{% endblock %}
+{% block main %}
+<h1>Lista de estágios </h1>
 
     {% for estagio in estagios %}
-        <li><h4>Título:</h4> {{ estagio.titulo }}</li>
-        <ul><h4> Autor:</h4> {{ estagio.autor }} </ul>
-        <ul><h4>Orientador:</h4> {{ estagio.orientador.professor.nome }}</ul>
-        <ul><h4> Indentificação da banca:</h4> {{ estagio.banca.identificacao }}</ul>
+        <div class="container">
+        <ul class="list-group">
+          <li class="list-group-item active"><h6>Título:</h6>  {{ estagio.titulo }}}</li>
+          <li class="list-group-item"><h6> Autor:</h6>{{ estagio.autor }} </li>
+          <li class="list-group-item"><h6>Orientador:</h6> {{ estagio.orientador.professor.nome }}</li>
+          <li class="list-group-item"><h6> Indentificação da banca:</h6> {{ estagio.banca.identificacao }}</li>
+        </ul>
+        </div>
     {% endfor %}
-</body>
-</html>
+
+{% endblock %}

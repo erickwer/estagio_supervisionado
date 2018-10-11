@@ -75,8 +75,8 @@ class Projeto(models.Model):
     identificador = models.IntegerField(max_length=200, null=True,choices=choices, default=tcc)
     titulo = models.CharField(max_length=500)
     autor = models.OneToOneField(Aluno, on_delete=models.SET_NULL, null=True)
-    orientador = models.OneToOneField(Professor, on_delete=models.SET_NULL, null=True)
-    banca = models.OneToOneField(Banca, on_delete=models.SET_NULL, null=True)
+    orientador = models.ForeignKey(Professor, on_delete=models.SET_NULL, null=True)
+    banca = models.ForeignKey(Banca, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.titulo

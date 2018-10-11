@@ -4,4 +4,3 @@ from django.http import HttpResponse
 
 def orientador(request):
     return render(request, 'vw_orientador.html')
-

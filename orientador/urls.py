@@ -3,8 +3,5 @@ from . import views
 from .views import *
 
 urlpatterns = [
- path('', views.orientador, name='vw_orientador'),
-
-
-
+  path('', views.orientador, name='vw_orientador'),
 ]
