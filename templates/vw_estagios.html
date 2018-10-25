@@ -4,14 +4,12 @@
 {% endblock %}
 {% block main %}
 <h1>Lista de estágios </h1>
-
     {% for estagio in estagios %}
         <div class="container">
         <ul class="list-group">
-          <li class="list-group-item active"><h6>Título:</h6>  {{ estagio.titulo }}}</li>
-          <li class="list-group-item"><h6> Autor:</h6>{{ estagio.autor }} </li>
-          <li class="list-group-item"><h6>Orientador:</h6> {{ estagio.orientador.professor.nome }}</li>
-          <li class="list-group-item"><h6> Indentificação da banca:</h6> {{ estagio.banca.identificacao }}</li>
+        <li class="list-group-item active"><h6>Título:</h6> {{ estagio.titulo }}</li>
+          <li class="list-group-item"><h6> Autor:</h6> {{ estagio.vinculo.aluno.aluno.nome }} </li>
+          <li class="list-group-item"><h6>Orientador: </h6> {{ estagio.vinculo.professor.professor.nome }} </li>
         </ul>
         </div>
     {% endfor %}

@@ -48,35 +48,37 @@ class Aluno(models.Model):
     def __str__(self):
         return self.aluno.nome
 
-
-class Banca(models.Model):
+# Classe que vincula o aluno a um professor (Orientador)
+class OrientadorAcademico(models.Model):
     class Meta:
-        verbose_name = 'Banca'
-        verbose_name_plural = 'Bancas'
+        verbose_name= 'OrientadorAcademico'
+        verbose_name_plural ='OrientadorAcademico'
 
-    identificacao = models.CharField(max_length=500)
-    professores = models.ManyToManyField(Professor)
+    professor = models.ForeignKey(Professor,  on_delete=models.SET_NULL, null=True)
+    aluno = models.OneToOneField(Aluno, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
-        return self.identificacao
+        return '%s - %s' % (self.professor.professor.nome, self.aluno.aluno.nome)
 
 
+# Classe que define a estrutura do projeto de TCC ou ESTAGIO
 class Projeto(models.Model):
     class Meta:
         verbose_name = 'Projeto'
         verbose_name_plural = 'Projetos'
-
     tcc = 1
     estagio = 2
     choices = (
         (tcc, ('TCC')),
         (estagio, ('ESTÁGIO'))
     )
-    identificador = models.IntegerField(max_length=200, null=True,choices=choices, default=tcc)
-    titulo = models.CharField(max_length=500)
-    autor = models.OneToOneField(Aluno, on_delete=models.SET_NULL, null=True)
-    orientador = models.ForeignKey(Professor, on_delete=models.SET_NULL, null=True)
-    banca = models.ForeignKey(Banca, on_delete=models.SET_NULL, null=True)
+    identificador = models.IntegerField(max_length=200, null=True, choices=choices, default=tcc)
+    periodo = models.CharField(max_length=200, null=True, blank=True)
+    data = models.DateField(null=True, blank=True)
+    titulo = models.CharField(max_length=500,  blank=True)
+    vinculo = models.OneToOneField(OrientadorAcademico, on_delete=models.CASCADE, null=False, blank=False)
+    professoresBanca = models.ManyToManyField(Professor, null=True, blank=True)
+    notaFinal = models.CharField(max_length=10, null=True, blank=True)
 
     def __str__(self):
         return self.titulo

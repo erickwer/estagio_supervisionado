@@ -8,9 +8,8 @@
         <div class="container">
         <ul class="list-group">
           <li class="list-group-item active"><h6>Título:</h6> {{ tcc.titulo }}</li>
-          <li class="list-group-item"><h6> Autor:</h6> {{ tcc.autor }} </li>
-          <li class="list-group-item"><h6>Orientador:</h6> {{ tcc.orientador.professor.nome }}</li>
-          <li class="list-group-item"><h6> Indentificação da banca:</h6> {{ tcc.banca.identificacao }}</li>
+          <li class="list-group-item"><h6> Autor:</h6> {{ tcc.vinculo.aluno.aluno.nome }} </li>
+          <li class="list-group-item"><h6>Orientador: </h6> {{ tcc.vinculo.professor.professor.nome }} </li>
         </ul>
         </div>
     {% endfor %}

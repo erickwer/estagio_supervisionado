@@ -1,7 +1,27 @@
 from django.forms import ModelForm
-from .models import Projeto
+from django import forms
+from .models import Projeto, OrientadorAcademico
+
 
 class ProjetoForm(ModelForm):
+
     class Meta:
         model = Projeto
-        fields = ['identificador', 'titulo', 'autor','orientador','banca']
+        exclude = ['periodo', 'notaFinal', 'vinculo']
+        labels = {
+            'identificador':'Identificador',
+            'data': 'Data',
+            'titulo':'Titulo',
+            'professoresBanca': 'Professores na Banca',
+            }
+
+        widgets={
+            'data': forms.DateInput(format='%d/%m/%y')
+        }
+
+
+class OrientadorAcademicoForm(ModelForm):
+
+    class Meta:
+        model = OrientadorAcademico
+        fields =['aluno','professor']

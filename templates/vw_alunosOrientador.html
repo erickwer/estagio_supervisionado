@@ -16,24 +16,15 @@
 
                     </tr>
                 </thead>
-                <h1>Lista de estágios </h1>
-    {% for proj in projMeusAlunos %}
-        <div class="container">
-        <ul class="list-group">
-        <li class="list-group-item active"><h6>Título:</h6> {{ proj.titulo }}</li>
-          <li class="list-group-item"><h6> Autor:</h6> {{ proj.vinculo.aluno.aluno.nome }} </li>
-          <li class="list-group-item"><h6>Orientador: </h6> {{ proj.vinculo.professor.professor.nome }} </li>
-        </ul>
-        </div>
-    {% endfor %}
                 {% for relacao in relacoes %}
                 <tbody>
                     <tr>
                         <td>
-                            <strong>{{ tcc.vinculo.aluno.aluno.nome }}</strong><br>
+                            <strong>{{ relacao.aluno.aluno.nome }}</strong><br>
+                            <strong>{{ relacao.professor.professor.id }}</strong><br>
                         </td>
                         <td>
-                            <a href="" class="btn btn-secondary">Acessar</a>
+                            <a href="{% url 'addProjeto' relacao.id %}" class="btn btn-secondary">Acessar</a>
                         </td>
                     </tr>
                 </tbody>
@@ -42,7 +33,7 @@
                 <tbody>
                     <tr>
                         <td colspan="3" style="text-align: center">
-                            Nenhum Projeto cadastrado
+                            Nenhum aluno cadastrado
                         </td>
                     </tr>
                 </tbody>
@@ -52,7 +43,7 @@
         </div>
     </div>
     <strong>
-        <a href="{% url 'retornaOrientadorAcademico' %}"  class="btn btn-primary" > Alunos </a>
+
     </strong>
 </main>
 

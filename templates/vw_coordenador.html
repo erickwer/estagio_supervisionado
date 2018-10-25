@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="Pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Esta área reservada para o orientador! </title>
-</head>
-<body>
-<h1>Esta área reservada para o Coordenador! </h1>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %} <h1> Pagina de acesso do coordenador </h1> {% endblock %}
+{% block main %}
+
+    <a href="orientadorAcademico/"  class="btn btn-primary" > Vincular Aluno a orientador </a>
+
+{% endblock %}

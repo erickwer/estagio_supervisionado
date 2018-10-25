@@ -8,7 +8,35 @@
      {% block title %}  <title>Title </title>{% endblock %}
 </head>
 <body>
-    <div class="container">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'home' %}">CEULP/ULBRA - SIG TCC/ESTÁGIO</a>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                    <ul class="navbar-nav mr-auto"></ul>
+                    <ul class="navbar-nav navbar-right">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user-circle fa-fw"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown01">
+                                <a class="dropdown-item" href="#">Meu perfil</a>
+                                <a class="dropdown-item" href="#">Minhas inscrições</a>
+                                <a class="dropdown-item" href="#">Sair</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <a href="#" class="btn btn-primary right">Login</a>
+
+            </div>
+        </nav>
+
+    <div class="container" style="padding-top: 80px">
         {% block main %}
         {% endblock %}
     </div>

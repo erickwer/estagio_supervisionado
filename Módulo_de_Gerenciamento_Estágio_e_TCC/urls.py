@@ -22,7 +22,7 @@ from coordenador import urls as urls_coordenadores
 from .view import *
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
+    path('', home, name='home'),
     path('disciplina/', include(urls_disciplinas)),
     path('aluno/', include(urls_alunos)),
     path('coordenador/', include(urls_coordenadores)),
