@@ -11,31 +11,28 @@
                 <table id="alunos-list" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Nome do Aluno</th>
-                        <th>Cadastrar</th>
+                        <th>Titulo</th>
+                        <th>Aluno</th>
+                        <th>Ações</th>
 
                     </tr>
                 </thead>
                 <h1>Lista de estágios </h1>
-    {% for proj in projMeusAlunos %}
-        <div class="container">
-        <ul class="list-group">
-        <li class="list-group-item active"><h6>Título:</h6> {{ proj.titulo }}</li>
-          <li class="list-group-item"><h6> Autor:</h6> {{ proj.vinculo.aluno.aluno.nome }} </li>
-          <li class="list-group-item"><h6>Orientador: </h6> {{ proj.vinculo.professor.professor.nome }} </li>
-        </ul>
-        </div>
-    {% endfor %}
-                {% for relacao in relacoes %}
+
+                {% for proj in projMeusAlunos %}
                 <tbody>
+                    {% if proj.vinculo.status == 'Cadastrado' %}
                     <tr>
                         <td>
-                            <strong>{{ tcc.vinculo.aluno.aluno.nome }}</strong><br>
+                            <strong>{{ proj.titulo }}</strong><br>
                         </td>
+                        <td>{{ proj.vinculo.aluno.aluno.nome }}</td>
                         <td>
-                            <a href="" class="btn btn-secondary">Acessar</a>
+                            <a href="{% url 'update' proj.id %}" class="btn btn-primary">Editar</a>
+
                         </td>
                     </tr>
+                {% endif %}
                 </tbody>
 
                 {% empty %}

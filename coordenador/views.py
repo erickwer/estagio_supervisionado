@@ -5,8 +5,22 @@ def coordenador (request):
     return  render(request, 'vw_coordenador.html')
 
 def OrientadorAcademico(request):
-    form = OrientadorAcademicoForm(request.POST, None)
-    if form.is_valid():
-        form.save()
-        return redirect('vw_coordenador')
-    return render(request, 'orientadorAcademicoForm.html', {'form': form})
+    if request.method =="POST":
+        form = OrientadorAcademicoForm(request.POST)
+        if form.is_valid():
+            orientaAcad = form.save(commit=False)
+            orientaAcad.status = "Vinculado"
+            orientaAcad.save()
+            return redirect('vw_coordenador')
+    else:
+        form = OrientadorAcademicoForm()
+        return render(request, 'orientadorAcademicoForm.html', {'form': form})
+
+
+    # form = OrientadorAcademicoForm(request.POST or None)
+    #
+    # if form.is_valid():
+    #     form.status = 'Vinculado'
+    #     form.save()
+    #     return redirect('vw_coordenador')
+    # return render(request, 'orientadorAcademicoForm.html', {'form': form})

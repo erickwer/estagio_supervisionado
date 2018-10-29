@@ -18,15 +18,18 @@
                 </thead>
                 {% for relacao in relacoes %}
                 <tbody>
+                    {% if relacao.status == 'Vinculado' %}
                     <tr>
                         <td>
                             <strong>{{ relacao.aluno.aluno.nome }}</strong><br>
-                            <strong>{{ relacao.professor.professor.id }}</strong><br>
+                             <strong>{{ relacao.status }}</strong><br>
+
                         </td>
                         <td>
                             <a href="{% url 'addProjeto' relacao.id %}" class="btn btn-secondary">Acessar</a>
                         </td>
                     </tr>
+                {% endif %}
                 </tbody>
 
                 {% empty %}

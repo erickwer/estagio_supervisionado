@@ -53,7 +53,7 @@ class OrientadorAcademico(models.Model):
     class Meta:
         verbose_name= 'OrientadorAcademico'
         verbose_name_plural ='OrientadorAcademico'
-
+    status = models.CharField(null=True, max_length=200)
     professor = models.ForeignKey(Professor,  on_delete=models.SET_NULL, null=True)
     aluno = models.OneToOneField(Aluno, on_delete=models.SET_NULL, null=True, blank=True)
 
@@ -82,7 +82,5 @@ class Projeto(models.Model):
 
     def __str__(self):
         return self.titulo
-
-
 
 
